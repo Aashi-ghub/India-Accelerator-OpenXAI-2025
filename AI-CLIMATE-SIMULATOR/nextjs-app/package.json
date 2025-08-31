@@ -1,33 +1,50 @@
 {
-  "name": "dead-earth-project",
-  "version": "0.1.0",
-  "private": true,
+  "name": "trash2cash",
+  "version": "1.0.0",
+  "description": "Turn Waste into Rewards - Smart Recycling Platform",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "setup": "npm run setup:backend && npm run setup:frontend",
+    "setup:backend": "cd backend && npm install",
+    "setup:frontend": "cd frontend && npm install --legacy-peer-deps",
+    "seed": "cd backend && npm run seed:mock",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm run lint",
+    "deploy:frontend": "cd frontend && npm run build",
+    "deploy:backend": "cd backend && npm start"
+  },
+  "keywords": [
+    "recycling",
+    "sustainability",
+    "iot",
+    "smart-bins",
+    "rewards",
+    "environment",
+    "waste-management"
+  ],
+  "author": "Trash2Cash Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aashi-ghub/Trash2Cash.git"
   },
   "dependencies": {
-    "next": "14.0.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "three": "^0.178.0",
-    "@types/three": "^0.178.0",
-    "@react-three/fiber": "^8.15.0",
-    "@react-three/drei": "^9.88.0",
-    "lucide-react": "^0.292.0",
-    "framer-motion": "^10.16.0"
+    "concurrently": "^8.2.2",
+    "node-fetch": "^2.7.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.0"
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
-} 
+}
